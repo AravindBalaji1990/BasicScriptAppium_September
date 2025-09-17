@@ -4,15 +4,15 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.AutomationName;
-import org.openqa.selenium.By;
 
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 
-public class AndroidDemoRun {
-    public static void main(String[] args) throws MalformedURLException, InterruptedException, URISyntaxException {
+public class AndroidLocatorStrategy_AndroidUiAutomator {
+
+
+    public static void main(String[] args) throws URISyntaxException, MalformedURLException, InterruptedException {
         // Android - app inside a device you run
         UiAutomator2Options options = new UiAutomator2Options();
         options.setAppPackage("com.swaglabsmobileapp"); // to get the app package name from the deivce
@@ -26,19 +26,14 @@ public class AndroidDemoRun {
         System.out.println("script is here");
         Thread.sleep(5000);
 
-//        By- web version
-//        AppiumBy - mobile version
-        driver.findElement(AppiumBy.accessibilityId("test-Username")).sendKeys("standard_user");
-        Thread.sleep(5000);
+        //Android UI Automator based lcoator
+        driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Username\")")).sendKeys("standard_user");
+        Thread.sleep(3000);
+        driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"test-Password\")")).sendKeys("secret_sauce");
+        Thread.sleep(3000);
+        driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"test-LOGIN\")")).click();
+        Thread.sleep(3000);
 
-        driver.findElement(AppiumBy.accessibilityId("test-Password")).sendKeys("secret_sauce");
-        Thread.sleep(5000);
-
-        driver.findElement(AppiumBy.accessibilityId("test-LOGIN")).click();
-
-
-        Thread.sleep(5000);
         driver.quit();
-
     }
 }
