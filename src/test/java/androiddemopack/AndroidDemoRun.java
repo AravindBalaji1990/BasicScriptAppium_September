@@ -29,14 +29,10 @@ public class AndroidDemoRun {
 //        By- web version
 //        AppiumBy - mobile version
         driver.findElement(AppiumBy.accessibilityId("test-Username")).sendKeys("standard_user");
-        Thread.sleep(5000);
-
+        Thread.sleep(3000);
         driver.findElement(AppiumBy.accessibilityId("test-Password")).sendKeys("secret_sauce");
-        Thread.sleep(5000);
-
+        Thread.sleep(3000);
         driver.findElement(AppiumBy.accessibilityId("test-LOGIN")).click();
-
-
         Thread.sleep(5000);
         driver.quit();
 

@@ -9,10 +9,8 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public class AndroidLocatorStrategy_AndroidUiAutomator_Verticalscrol {
-
-
-    public static void main(String[] args) throws URISyntaxException, MalformedURLException, InterruptedException {
+public class AndroidDemoRun_AndoridUIAutomator {
+    public static void main(String[] args) throws MalformedURLException, InterruptedException, URISyntaxException {
         // Android - app inside a device you run
         UiAutomator2Options options = new UiAutomator2Options();
         options.setAppPackage("io.appium.android.apis"); // to get the app package name from the deivce
@@ -26,16 +24,12 @@ public class AndroidLocatorStrategy_AndroidUiAutomator_Verticalscrol {
         System.out.println("script is here");
         Thread.sleep(5000);
 
-        //Android UI Automator based lcoator
-        driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Views\")")).click();
+//        By- web version
+//        AppiumBy - mobile version
+        driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/text1\").description(\"App\")")).click();
         Thread.sleep(3000);
-
-//                                                                      new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"TextFields\").instance(0))
-        driver.findElement(AppiumBy.androidUIAutomator
-                ("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().description(\"Progress Bar\"))")).click();
-        Thread.sleep(3000);
-
 
         driver.quit();
+
     }
 }
