@@ -10,7 +10,9 @@ import java.net.URL;
 
 public class AndroidDemoRun_install_shellCommand {
     public static void main(String[] args) throws IOException, InterruptedException {
-        String command = "/Users/aravindbalaji/Library/Android/sdk/platform-tools/adb.exe";
+//        String command = "/Users/aravindbalaji/Library/Android/sdk/platform-tools/adb.exe";
+        String command = "adb";
+
         String pathofapp = "/Users/aravindbalaji/IdeaProjects/FirstScriptAppium_September/src/test/resources/AND/android-app.apk";
 
         // programatical way to execute the command line
